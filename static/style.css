@@ -1,0 +1,91 @@
+/* RESET GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Video */
+video {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.bg-img {
+    width: 100%;
+    background: url(../static/ceu.jpg) no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
+
+/* Header */
+h1, form, div {
+    text-align: center;
+    margin: 20px auto;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 50px;
+    color: white;
+}
+
+select, input, p {
+    padding: 15px;
+}
+
+select, input {
+    font-size: 18px;
+    opacity: 0.8;
+    border-radius: 10px;
+    outline: none;
+}
+
+input {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+input:hover {
+    background-color: white;
+    color: black;
+}
+
+div {
+    width: 25%;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 10px 5px grey; */
+}
+
+
+
+@media (max-width: 860px){
+    body {
+        overflow-x: hidden;
+        text-align: center;
+    }
+    
+    video {
+        width: 300%;
+    }
+
+    div {
+        width: 80%;
+    }
+
+    .bg-img {
+        height: 200%;
+        width: 200%;
+
+    }
+}

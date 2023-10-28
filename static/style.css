@@ -13,7 +13,6 @@ video {
     left: 0;
     z-index: -1;
 }
-
 .bg-img {
     width: 100%;
     background: url(../static/ceu.jpg) no-repeat center center/cover;
@@ -35,6 +34,13 @@ h1 {
     color: white;
 }
 
+h3 {
+    text-align: center;
+    margin: 20px auto;
+    padding-top: 50px;
+    color: white;
+}
+
 select, input, p {
     padding: 15px;
 }
@@ -46,7 +52,7 @@ select, input {
     outline: none;
 }
 
-input {
+input{
     background-color: black;
     color: white;
     cursor: pointer;
@@ -67,7 +73,26 @@ div {
     /* box-shadow: 0px 0px 10px 5px grey; */
 }
 
-
+.titulo {
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+.container {
+    display: flex;
+    border-radius: 0px;
+    padding: 20px;
+    width: 95%;
+}
+.prevext {
+    border-radius: 20px 0 0 20px;
+}
+.prevint {
+    border-radius: 0px;
+} 
+.prevext2 {
+    border-radius: 0 20px 20px 0;
+}
 
 @media (max-width: 860px){
     body {

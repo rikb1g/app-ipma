@@ -8,11 +8,16 @@
 </head>
 <body>
 
-    <video autoplay loop>
+    <!-- <video autoplay loop>
         <source src="{{ url_for('static', filename='clima.mp4')}}" type="video/mp4">
-    </video>
+    </video> -->
 
     <img class="bg-img" src="{{ url_for('static', filename='ceu.jpg')}}" alt="" srcset="">
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prev5dias">Previsão 5 dias</a>
+    </nav>
 
     <h1>Clima em Portugal</h1>
 
@@ -25,6 +30,7 @@
         </select>
         <input type="submit" value="Consultar">
     </form>
+   
     
     <div>
         {% if clima %}
@@ -34,17 +40,6 @@
             <p>Temperatura Mínima: {{ clima.temperatura_min}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima.probabilidade_prec}}%</p>
             <p>Data Consulta: {{ clima.data_consulta}}</p>
-        {% else %}
-            <p>Escolha uma cidade para obter informações sobre o clima</p>
-        {% endif %}
-    </div>
-    <div class="previsao5dias">
-        {% if clima_dia_seguinte %}
-            <h2>Previsão para {{ clima_dia_seguinte.data_consulta1 }}</h2>
-            <p>Temperatura Máxima: {{ clima_dia_seguinte.temperatura_max1 }}ºC</p>
-            <p>Temperatura Mínima: {{ clima_dia_seguinte.temperatura_min1 }}ºC</p>
-            <p>Probabilidade Precipitação: {{ clima_dia_seguinte.probabilidade_prec1 }}%</p>
-            <p>Data Consulta: {{ clima_dia_seguinte.data_consulta1 }}</p>
         {% else %}
             <p>Escolha uma cidade para obter informações sobre o clima</p>
         {% endif %}

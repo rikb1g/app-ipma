@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP IPMA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prev5dias">Previsão 5 dias</a>
+    </nav>
+
+    <img class="bg-img" src="{{ url_for('static', filename='ceu.jpg')}}" alt="" srcset="">
+
+    <h1>Previsão para os próximos 5 dias</h1>
+
+    <form method="post">
+        <select name="cidade_5dias">
+            <option value="">Escolha uma cidade</option>
+            <option value="1110600">Lisboa</option>
+            <option value="1030300">Porto</option>
+            <option value="1141600">Santarém</option>
+        </select>
+        <input type="submit" value="Consultar">
+        
+    </form>
+    
+    <section class="titulo">
+    <h2>Clima em {{ nome_cidade }}</h2>
+    </section>
+    
+
+    <section class="container">
+    
+    <div class="prevext">
+        {% if clima_1 %}
+            <h2>Dia {{clima_1.data_consulta1}}</h2>
+            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <p>Temperatura Máxima: {{ clima_1.temperatura_max1}}ºC</p>
+            <p>Temperatura Mínima: {{ clima_1.temperatura_min1}}ºC</p>
+            <p>Probabilidade Precipitação: {{ clima_1.probabilidade_prec1}}%</p>
+            <p>Data Consulta: {{ clima_1.data_consulta1}}</p>
+        {% else %}
+            <p>Escolha uma cidade para obter informações sobre o clima</p>
+        {% endif %}
+    </div>
+
+    <div class="prevint">
+        {% if clima_2 %}
+            <h2>Dia {{clima_2.data_consulta2}}</h2>
+            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <p>Temperatura Máxima: {{ clima_2.temperatura_max2}}ºC</p>
+            <p>Temperatura Mínima: {{ clima_2.temperatura_min2}}ºC</p>
+            <p>Probabilidade Precipitação: {{ clima_2.probabilidade_prec2}}%</p>
+            <p>Data Consulta: {{ clima_2.data_consulta2}}</p>
+        {% else %}
+            <p>Escolha uma cidade para obter informações sobre o clima</p>
+        {% endif %}
+    </div>
+    <div class="prevint">
+        {% if clima_3 %}
+            <h2>Dia {{clima_3.data_consulta3}}</h2>
+        
+            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <p>Temperatura Máxima: {{ clima_3.temperatura_max3}}ºC</p>
+            <p>Temperatura Mínima: {{ clima_3.temperatura_min3}}ºC</p>
+            <p>Probabilidade Precipitação: {{ clima_3.probabilidade_prec3}}%</p>
+            <p>Data Consulta: {{ clima_3.data_consulta3}}</p>
+        {% else %}
+            <p>Escolha uma cidade para obter informações sobre o clima</p>
+        {% endif %}
+    </div>
+
+    <div class="prevext2">
+        {% if clima_4 %}
+            <h2>Dia {{clima_4.data_consulta4}}</h2>
+            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <p>Temperatura Máxima: {{ clima_4.temperatura_max4}}ºC</p>
+            <p>Temperatura Mínima: {{ clima_4.temperatura_min4}}ºC</p>
+            <p>Probabilidade Precipitação: {{ clima_4.probabilidade_prec4}}%</p>
+            <p>Data Consulta: {{ clima_4.data_consulta4}}</p>
+        {% else %}
+            <p>Escolha uma cidade para obter informações sobre o clima</p>
+        {% endif %}
+    </div>
+    
+    </section>
+
+
+   
+    
+</body>
+</html>

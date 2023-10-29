@@ -45,7 +45,7 @@ select, input, p {
     padding: 15px;
 }
 
-select, input {
+select, input, nav{
     font-size: 18px;
     opacity: 0.8;
     border-radius: 10px;
@@ -60,6 +60,26 @@ input{
 }
 
 input:hover {
+    background-color: white;
+    color: black;
+}
+
+nav {
+    text-align: center;
+    padding: 50px 20px 10px 20px;
+}
+nav > a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    
+}
+nav > a:hover {
     background-color: white;
     color: black;
 }

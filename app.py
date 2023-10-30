@@ -14,6 +14,7 @@ def index():
     nome_cidade = None
     clima = None
     imagem = None
+    video = obter_video(1)
     
 
     # Verifica se o método é POST
@@ -37,7 +38,8 @@ def index():
                     'data_consulta': dados_clima['data'][0]['forecastDate'],
                     'id_estado_tempo': dados_clima['data'][0]['idWeatherType']
                 }
-
+                
+                video = obter_video(clima['id_estado_tempo'])
                 nome_cidade = obter_cidade(cidade_id)
                 imagem = obter_icone_tempo(clima['id_estado_tempo'])
 
@@ -45,7 +47,7 @@ def index():
                 
 
     # Renderiza o template com os dados
-    return render_template('index.html', clima=clima, nome_cidade=nome_cidade,imagem = imagem)
+    return render_template('index.html', clima=clima, nome_cidade=nome_cidade,imagem = imagem, video= video)
 
 @app.route("/prev5dias", methods=['GET', 'POST'])
 def prev5dias():
@@ -55,6 +57,7 @@ def prev5dias():
     clima_2 = None
     clima_3 = None
     clima_4 = None
+    video = obter_video(1)
 
     if request.method == "POST":
         # Vai buscar o ID da cidade a partir do formulário
@@ -99,7 +102,7 @@ def prev5dias():
             }
             imagem_4 = obter_icone_tempo(clima_4['id_estado_tempo4'])
             
-
+            video = obter_video()
             nome_cidade = obter_cidade(cidade_id)
 
 
@@ -112,28 +115,75 @@ def prev5dias():
 def obter_cidade(cidade_id):
     if cidade_id == "1110600":
         return "Lisboa"
-    elif cidade_id == "1030300":
+    elif cidade_id == "1131200":
         return "Porto"
     elif cidade_id == "1141600":
         return "Santarém"
+    elif cidade_id == "1010500":
+        return "Aveiro"
+    elif cidade_id == "1020500":
+        return "Beja"
+    elif cidade_id == "1030300":
+        return "Braga"
+    elif cidade_id == "1040200":
+        return "Bragança"
+    elif cidade_id == "1050200":
+        return "Castelo Branco"
+    elif cidade_id == "1060300":
+        return "Coimbra"
+    elif cidade_id == "1070500":
+        return "Évora"
+    elif cidade_id == "1080500":
+        return "Faro"
+    elif cidade_id == "1090700":
+        return "Guarda"
+    elif cidade_id == "1100900":
+        return "Leiria"
+    elif cidade_id == "1151200":
+        return "Setúbal"
+    elif cidade_id == "1160900":
+        return "Viana do Castelo"
+    elif cidade_id == "1171400":
+        return "Vila Real"
+    elif cidade_id == "1182300":
+        return "Viseu"
     return None
 
 
 # obter o icone mediante o id do estado do tempo
 def obter_icone_tempo(id_estado_tempo):
     if id_estado_tempo <=1:
-        return url_for('static', filename='sol.svg')
+        return url_for('static', filename='imagens/sol.svg')
     elif id_estado_tempo <=5:
-        return url_for('static', filename='nublado.svg')
+        return url_for('static', filename='imagens/nublado.svg')
     elif id_estado_tempo <= 7:
-        return url_for('static', filename='aguaceiros.svg')
+        return url_for('static', filename='imagens/aguaceiros.svg')
     elif id_estado_tempo <= 15:
-        return url_for('static', filename='chuva.svg')
+        return url_for('static', filename='imagens/chuva.svg')
     elif id_estado_tempo <= 17:
-        return url_for('static', filename='nevoeiro.svg')
+        return url_for('static', filename='imagens/nevoeiro.svg')
     elif id_estado_tempo == 19:
-        return url_for('static', filename='neve.svg')
-    return url_for('static', filename='padrao.svg')
+        return url_for('static', filename='imagens/neve.svg')
+    return url_for('static', filename='imagens/padrao.svg')
+
+
+# funçao para obter o video
+def obter_video(id_estado_tempo):
+    if id_estado_tempo <=1:
+        return url_for('static', filename='videos/sol.mp4')
+    elif id_estado_tempo <=5:
+        return url_for('static', filename='videos/nublado.mp4')
+    elif id_estado_tempo <= 7:
+        return url_for('static', filename='videos/chuva.mp4')
+    elif id_estado_tempo <= 15:
+        return url_for('static', filename='videos/chuva.mp4')
+    elif id_estado_tempo <= 17:
+        return url_for('static', filename='videos/nublado.mp4')
+    elif id_estado_tempo == 19:
+        return url_for('static', filename='videos/neve.mp4')
+    return url_for('static', filename='videos/sol.mp4')
+
+    
                 
 
 # Inicia a aplicação em modo de debug

@@ -37,7 +37,7 @@
     <div class="prevext">
         {% if clima_1 %}
             <h2>Dia {{clima_1.data_consulta1}}</h2>
-            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <img width="100px" src="{{ imagem_1 }}" alt="">
             <p>Temperatura Máxima: {{ clima_1.temperatura_max1}}ºC</p>
             <p>Temperatura Mínima: {{ clima_1.temperatura_min1}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima_1.probabilidade_prec1}}%</p>
@@ -50,7 +50,7 @@
     <div class="prevint">
         {% if clima_2 %}
             <h2>Dia {{clima_2.data_consulta2}}</h2>
-            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <img width="100px" src="{{ imagem_2 }}" alt="">
             <p>Temperatura Máxima: {{ clima_2.temperatura_max2}}ºC</p>
             <p>Temperatura Mínima: {{ clima_2.temperatura_min2}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima_2.probabilidade_prec2}}%</p>
@@ -63,7 +63,7 @@
         {% if clima_3 %}
             <h2>Dia {{clima_3.data_consulta3}}</h2>
         
-            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <img width="100px" src="{{ imagem_3 }}" alt="">
             <p>Temperatura Máxima: {{ clima_3.temperatura_max3}}ºC</p>
             <p>Temperatura Mínima: {{ clima_3.temperatura_min3}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima_3.probabilidade_prec3}}%</p>
@@ -76,7 +76,7 @@
     <div class="prevext2">
         {% if clima_4 %}
             <h2>Dia {{clima_4.data_consulta4}}</h2>
-            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <img width="100px" src="{{ imagem_4 }}" alt="">
             <p>Temperatura Máxima: {{ clima_4.temperatura_max4}}ºC</p>
             <p>Temperatura Mínima: {{ clima_4.temperatura_min4}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima_4.probabilidade_prec4}}%</p>

@@ -35,11 +35,12 @@
     <div>
         {% if clima %}
             <h2>Clima em {{ nome_cidade }}</h2>
-            <img width="100px" src="{{ url_for('static', filename='chuva.svg')}}" alt="">
+            <img width="100px" src="{{ imagem }}" alt="Condições do tempo">
             <p>Temperatura Máxima: {{ clima.temperatura_max}}ºC</p>
             <p>Temperatura Mínima: {{ clima.temperatura_min}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima.probabilidade_prec}}%</p>
             <p>Data Consulta: {{ clima.data_consulta}}</p>
+            <p> {{ clima.id_estado_tempo}}</p>
         {% else %}
             <p>Escolha uma cidade para obter informações sobre o clima</p>
         {% endif %}

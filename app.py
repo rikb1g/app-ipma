@@ -15,6 +15,8 @@ def index():
     clima = None
     imagem = None
     video = obter_video(1)
+    velocidade_vento = None
+    icon_vento = None
     
 
     # Verifica se o método é POST
@@ -36,18 +38,23 @@ def index():
                     'temperatura_min': dados_clima['data'][0]['tMin'],
                     'probabilidade_prec': dados_clima['data'][0]['precipitaProb'],
                     'data_consulta': dados_clima['data'][0]['forecastDate'],
-                    'id_estado_tempo': dados_clima['data'][0]['idWeatherType']
+                    'id_estado_tempo': dados_clima['data'][0]['idWeatherType'],
+                    'previsao_vento_dire': dados_clima['data'][0]['predWindDir'],
+                    'velocidade_vento': dados_clima['data'][0]['classWindSpeed']
                 }
                 
                 video = obter_video(clima['id_estado_tempo'])
                 nome_cidade = obter_cidade(cidade_id)
-                imagem = obter_icone_tempo(clima['id_estado_tempo'])
+                imagem = obter_icon_tempo(clima['id_estado_tempo'])
+
+                velocidade_vento = obter_velocidade_vento(clima['velocidade_vento'])
+                icon_vento = obter_icon_vento(clima['previsao_vento_dire'])
 
                 
                 
 
     # Renderiza o template com os dados
-    return render_template('index.html', clima=clima, nome_cidade=nome_cidade,imagem = imagem, video= video)
+    return render_template('index.html', clima=clima, nome_cidade=nome_cidade,imagem = imagem, video= video, velocidade_vento = velocidade_vento, icon_vento = icon_vento)
 
 @app.route("/prev5dias", methods=['GET', 'POST'])
 def prev5dias():
@@ -57,7 +64,7 @@ def prev5dias():
     clima_2 = None
     clima_3 = None
     clima_4 = None
-    video = obter_video(1)
+    
 
     if request.method == "POST":
         # Vai buscar o ID da cidade a partir do formulário
@@ -73,40 +80,57 @@ def prev5dias():
                 'temperatura_min1': dados_clima['data'][1]['tMin'],
                 'probabilidade_prec1': dados_clima['data'][1]['precipitaProb'],
                 'data_consulta1': dados_clima['data'][1]['forecastDate'],
-                'id_estado_tempo1': dados_clima['data'][1]['idWeatherType']
+                'id_estado_tempo1': dados_clima['data'][1]['idWeatherType'],
+                'previsao_vento_dire1': dados_clima['data'][1]['predWindDir'],
+                'velocidade_vento1': dados_clima['data'][1]['classWindSpeed']
             }
-            imagem_1 = obter_icone_tempo(clima_1['id_estado_tempo1'])
+            imagem_1 = obter_icon_tempo(clima_1['id_estado_tempo1'])
+            velocidade_vento1 = obter_velocidade_vento(clima_1['velocidade_vento1'])
+            icon_vento1 = obter_icon_vento(clima_1['previsao_vento_dire1'])
             clima_2 = {
                 'temperatura_max2': dados_clima['data'][2]['tMax'],
                 'temperatura_min2': dados_clima['data'][2]['tMin'],
                 'probabilidade_prec2': dados_clima['data'][2]['precipitaProb'],
                 'data_consulta2': dados_clima['data'][2]['forecastDate'],
-                'id_estado_tempo2': dados_clima['data'][2]['idWeatherType']
+                'id_estado_tempo2': dados_clima['data'][2]['idWeatherType'],
+                'previsao_vento_dire2': dados_clima['data'][2]['predWindDir'],
+                'velocidade_vento2': dados_clima['data'][2]['classWindSpeed']
             }
-            imagem_2 = obter_icone_tempo(clima_2['id_estado_tempo2'])
+            imagem_2 = obter_icon_tempo(clima_2['id_estado_tempo2'])
+            velocidade_vento2 = obter_velocidade_vento(clima_2['velocidade_vento2'])
+            icon_vento2 = obter_icon_vento(clima_2['previsao_vento_dire2'])
             
             clima_3 = {
                 'temperatura_max3': dados_clima['data'][3]['tMax'],
                 'temperatura_min3': dados_clima['data'][3]['tMin'],
                 'probabilidade_prec3': dados_clima['data'][3]['precipitaProb'],
                 'data_consulta3': dados_clima['data'][3]['forecastDate'],
-                'id_estado_tempo3': dados_clima['data'][3]['idWeatherType']
+                'id_estado_tempo3': dados_clima['data'][3]['idWeatherType'],
+                'previsao_vento_dire3': dados_clima['data'][3]['predWindDir'],
+                'velocidade_vento3': dados_clima['data'][3]['classWindSpeed']
             }
-            imagem_3 = obter_icone_tempo(clima_3['id_estado_tempo3'])
+            imagem_3 = obter_icon_tempo(clima_3['id_estado_tempo3'])
+            velocidade_vento3 = obter_velocidade_vento(clima_3['velocidade_vento3'])
+            icon_vento3 = obter_icon_vento(clima_3['previsao_vento_dire3'])
+            
             clima_4 = {
                 'temperatura_max4': dados_clima['data'][4]['tMax'],
                 'temperatura_min4': dados_clima['data'][4]['tMin'],
                 'probabilidade_prec4': dados_clima['data'][4]['precipitaProb'],
                 'data_consulta4': dados_clima['data'][4]['forecastDate'],
-                'id_estado_tempo4': dados_clima['data'][4]['idWeatherType']
+                'id_estado_tempo4': dados_clima['data'][4]['idWeatherType'],
+                'previsao_vento_dire4': dados_clima['data'][4]['predWindDir'],
+                'velocidade_vento4': dados_clima['data'][4]['classWindSpeed']
             }
-            imagem_4 = obter_icone_tempo(clima_4['id_estado_tempo4'])
+            imagem_4 = obter_icon_tempo(clima_4['id_estado_tempo4'])
+            velocidade_vento4 = obter_velocidade_vento(clima_4['velocidade_vento4'])
+            icon_vento4 = obter_icon_vento(clima_4['previsao_vento_dire4'])
             
-            video = obter_video()
+            
             nome_cidade = obter_cidade(cidade_id)
 
 
-            return render_template('prev5dias.html', nome_cidade= nome_cidade, clima_1=clima_1, clima_2=clima_2, clima_3=clima_3, clima_4=clima_4, imagem_1 = imagem_1, imagem_2= imagem_2, imagem_3= imagem_3, imagem_4= imagem_4)
+            return render_template('prev5dias.html', nome_cidade= nome_cidade, clima_1=clima_1, clima_2=clima_2, clima_3=clima_3, clima_4=clima_4, imagem_1 = imagem_1, imagem_2= imagem_2, imagem_3= imagem_3, imagem_4= imagem_4, velocidade_vento1 = velocidade_vento1, icon_vento1 = icon_vento1, velocidade_vento2=velocidade_vento2, icon_vento2=icon_vento2, velocidade_vento3= velocidade_vento3, icon_vento3= icon_vento3, velocidade_vento4= velocidade_vento4, icon_vento4= icon_vento4)
     else:
         return "Cidade não encontrada na sessão"
 
@@ -150,8 +174,42 @@ def obter_cidade(cidade_id):
     return None
 
 
+
+def obter_velocidade_vento(velocidade_vento):
+    if velocidade_vento == 1:
+        return "Franco"
+    if velocidade_vento == 2:
+        return "Moderado"
+    if velocidade_vento == 3:
+        return "Forte"
+    if velocidade_vento == 4:
+        return "Muito forte"
+
+
+
+
+
+
+def obter_icon_vento(predWindDir):
+    if predWindDir == "SW":
+        return url_for('static', filename='direcoes/ne.svg')
+    if predWindDir == "NW":
+        return url_for('static', filename='direcoes/se.svg')
+    if predWindDir == "SE":
+        return url_for('static', filename='direcoes/nw.svg')
+    if predWindDir == "NE":
+        return url_for('static', filename='direcoes/sw.svg')
+    if predWindDir == "N":
+        return url_for('static', filename='direcoes/s.svg')
+    if predWindDir == "S":
+        return url_for('static', filename='direcoes/n.svg')
+    if predWindDir == "W":
+        return url_for('static', filename='direcoes/e.svg')
+    if predWindDir == "E":
+        return url_for('static', filename='direcoes/w.svg')
+
 # obter o icone mediante o id do estado do tempo
-def obter_icone_tempo(id_estado_tempo):
+def obter_icon_tempo(id_estado_tempo):
     if id_estado_tempo <=1:
         return url_for('static', filename='imagens/sol.svg')
     elif id_estado_tempo <=5:

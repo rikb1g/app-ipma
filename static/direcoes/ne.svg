@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="100%"
+   width="100%"
+   version="1.1"
+   viewBox="0 0 500 500"
+   id="svg2"
+   sodipodi:docname="ne.svg"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="namedview2"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.472"
+     inkscape:cx="251.05932"
+     inkscape:cy="247.88136"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2" />
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+  <g
+     id="g1">
+    <title
+       id="title1">background</title>
+    <rect
+       x="-1"
+       y="-1"
+       width="502"
+       height="502"
+       id="canvas_background"
+       fill="none" />
+    <g
+       id="canvasGrid"
+       display="none">
+      <rect
+         id="svg_2"
+         width="100%"
+         height="100%"
+         x="0"
+         y="0"
+         stroke-width="0"
+         fill="url(#gridpattern)" />
+    </g>
+  </g>
+  <g
+     id="g2"
+     transform="rotate(30.783112,313.0841,239.13643)"
+     style="image-rendering:auto">
+    <title
+       id="title2">Layer 1</title>
+    <ellipse
+       fill="#74c476"
+       stroke-width="15"
+       cx="262"
+       cy="282.99982"
+       id="svg_1"
+       rx="93"
+       ry="90"
+       opacity="0.9"
+       stroke="#191919"
+       transform="rotate(45,262,282.99981)" />
+    <!-- Aplique a rotação aqui -->
+    <path
+       fill="#333333"
+       stroke-width="4"
+       d="m 215.41498,194.94797 46.5,-74.99999 46.5,74.99999 c -14.83333,-5.99994 -31.66663,-9.4999 -45.49997,-10.4999 -16.66667,1.49999 -30.83337,3.99997 -47.50003,10.4999 z"
+       id="svg_3"
+       stroke="#333333" />
+  </g>
+</svg>

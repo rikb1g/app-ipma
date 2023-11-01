@@ -51,7 +51,11 @@
             <p>Temperatura Máxima: {{ clima.temperatura_max}}ºC</p>
             <p>Temperatura Mínima: {{ clima.temperatura_min}}ºC</p>
             <p>Probabilidade Precipitação: {{ clima.probabilidade_prec}}%</p>
-            <p>Data Consulta: {{ clima.data_consulta}}</p>
+            <p>Vento: {{velocidade_vento}}</p>
+            <img width="100px" src="{{ icon_vento }}" alt="Direçao vento"
+                title="Vento {{ velocidade_vento}} de {{ clima.previsao_vento_dire }} ">
+            <p>{{ clima.previsao_vento_dire }}</p>
+            <p>Data Consulta: {{ clima.data_consulta }}</p>
         {% else %}
             <p>Escolha uma cidade para obter informações sobre o clima</p>
         {% endif %}
